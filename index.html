@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cecilia & Isak</title>
+<meta name="description" content="Välkommen till Cecilia och Isaks bröllop den 18 september 2027. Vigsel i Djursholms kapell kl 15.00, sedan båt till middag och fest på Ekensdal.">
+<meta property="og:title" content="Cecilia & Isaks bröllop">
+<meta property="og:description" content="18 september 2027 · Djursholms kapell och Ekensdal">
+<meta name="theme-color" content="#F6EFCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Gloock&display=swap">
+<style>
+body{
+  --bg:#F6EFCC; --ink:#35351C; --muted:#67643F; --accent:#1E2716;
+  --line:#DCD2A0; --btn:#1E2716; --btn-ink:#F6EFCC;
+  --display:"Gloock", Georgia, serif; --body:"Bree Serif", Georgia, serif;
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.55;
+  -webkit-text-size-adjust:100%;
+}
+*{box-sizing:border-box}
+img{display:block;max-width:100%}
+h1{margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.page{max-width:1180px;min-height:100vh;margin-inline:auto;
+  padding:calc(28px + env(safe-area-inset-top,0px)) clamp(16px,4vw,40px) calc(40px + env(safe-area-inset-bottom,0px));
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:center}
+
+/* The invitation itself, kept exactly as designed */
+.card{min-width:0;margin:0}
+.card img{width:100%;max-width:580px;height:auto;margin-inline:auto}
+
+.info{min-width:0;display:grid;gap:22px}
+.count{font-family:var(--display);font-size:clamp(44px,5vw,64px);line-height:1;font-variant-numeric:tabular-nums}
+.count span{display:block;font-family:var(--body);font-size:17px;color:var(--muted);margin-top:6px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:6.5rem 1fr;gap:0 18px;padding-block:12px;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.t{font-family:var(--display);font-size:20px;line-height:1.35;font-variant-numeric:tabular-nums}
+.what{font-family:var(--display);font-size:22px;line-height:1.35}
+.where{grid-column:2;color:var(--muted);font-size:16px}
+.tip{color:var(--muted);font-size:16px;max-width:44ch}
+.btn{justify-self:start;text-decoration:none;font:inherit;font-weight:600;font-size:18px;background:var(--btn);color:var(--btn-ink);border-radius:4px;padding:15px 30px}
+.btn:hover{filter:brightness(1.12)}
+.note{font-size:14px;color:var(--muted)}
+
+@media (max-width:900px){
+  .page{grid-template-columns:1fr;min-height:0;align-items:start;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1 class="card"><img src="inbjudan.png" alt="Välkommen till Cecilia och Isaks bröllop, 18 september 2027" width="636" height="611"></h1>
+
+  <section class="info">
+    <p class="count"><strong id="days">—</strong><span>dagar kvar</span></p>
+    <ol class="timeline">
+      <li><span class="t">15.00</span><span class="what">Vigsel</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Djursholms+kapell" target="_blank" rel="noopener">Djursholms kapell</a></span></li>
+      <li><span class="t">Därefter</span><span class="what">Båt</span><span class="where">Vi åker tillsammans till Ekensdal</span></li>
+      <li><span class="t">Kväll</span><span class="what">Middag och fest</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ekensdal" target="_blank" rel="noopener">Ekensdal</a></span></li>
+    </ol>
+    <p class="tip">Ta med en extra tröja till båten, det kan blåsa på vattnet i september.</p>
+    <!-- Byt LÄNK mot adressen till Google-formuläret -->
+    <a class="btn" id="osa-link" href="LÄNK" target="_blank" rel="noopener">OSA här</a>
+    <p class="note" id="osa-missing" hidden>Länken till OSA-formuläret läggs in snart.</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var days = Math.ceil((new Date("2027-09-18T15:00:00+02:00") - Date.now()) / 864e5);
+  document.getElementById("days").textContent = Math.max(days, 0);
+
+  // Until the Google Form link is filled in, the button explains instead of opening a broken page.
+  var osa = document.getElementById("osa-link");
+  if (!/^https:\/\//.test(osa.getAttribute("href"))) {
+    osa.addEventListener("click", function(e){
+      e.preventDefault();
+      document.getElementById("osa-missing").hidden = false;
+    });
+  }
+})();
+</script>
+</body>
+</html>
