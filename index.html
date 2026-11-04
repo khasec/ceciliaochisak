@@ -4,87 +4,242 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cecilia & Isak</title>
-<meta name="description" content="Välkommen till Cecilia och Isaks bröllop den 18 september 2027. Vigsel i Djursholms kapell kl 15.00, sedan båt till middag och fest på Ekensdal.">
+<meta name="description" content="Välkommen till Cecilia och Isaks bröllop lördag 18 september 2027. Vigsel i Djursholms kapell kl 15.00, sedan båt till middag och fest på Ekensdal.">
 <meta property="og:title" content="Cecilia & Isaks bröllop">
-<meta property="og:description" content="18 september 2027 · Djursholms kapell och Ekensdal">
+<meta property="og:description" content="Lördag 18 september 2027 · Djursholms kapell och Ekensdal">
 <meta name="theme-color" content="#F6EFCC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Gloock&display=swap">
 <style>
-body{
+:root{
   --bg:#F6EFCC; --ink:#35351C; --muted:#67643F; --accent:#1E2716;
-  --line:#DCD2A0; --btn:#1E2716; --btn-ink:#F6EFCC;
+  --line:#DCD2A0; --soft:#EFE6B8; --btn:#1E2716; --btn-ink:#F6EFCC; --blue:#B9CFF5;
   --display:"Gloock", Georgia, serif; --body:"Bree Serif", Georgia, serif;
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:var(--body); font-size:17px; line-height:1.55;
-  -webkit-text-size-adjust:100%;
 }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box}
-img{display:block;max-width:100%}
-h1{margin:0}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 p{margin:0}
-a{color:inherit}
+a{color:inherit;text-underline-offset:3px}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
-.page{max-width:1180px;min-height:100vh;margin-inline:auto;
-  padding:calc(28px + env(safe-area-inset-top,0px)) clamp(16px,4vw,40px) calc(40px + env(safe-area-inset-bottom,0px));
-  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:center}
+/* ---------- Hero: everything important without scrolling ---------- */
+.hero{max-width:1180px;min-height:100svh;margin-inline:auto;
+  padding:calc(24px + env(safe-area-inset-top,0px)) clamp(16px,4vw,40px) 32px;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.card{margin:0;min-width:0}
+.card img{width:100%;max-width:560px;margin-inline:auto}
 
-/* The invitation itself, kept exactly as designed */
-.card{min-width:0;margin:0}
-.card img{width:100%;max-width:580px;height:auto;margin-inline:auto}
+.info{min-width:0;display:grid;gap:20px}
+.date{font-family:var(--display);font-size:clamp(40px,5.4vw,68px);line-height:1.02;color:var(--accent)}
+.date small{display:block;font-size:21px;line-height:1.4;margin-bottom:4px}
+.count{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+.count strong{font-family:var(--display);font-weight:400;font-size:clamp(32px,3.6vw,44px);line-height:1}
+.count span{color:var(--muted)}
 
-.info{min-width:0;display:grid;gap:22px}
-.count{font-family:var(--display);font-size:clamp(44px,5vw,64px);line-height:1;font-variant-numeric:tabular-nums}
-.count span{display:block;font-family:var(--body);font-size:17px;color:var(--muted);margin-top:6px}
 .timeline{list-style:none;margin:0;padding:0}
-.timeline li{display:grid;grid-template-columns:6.5rem 1fr;gap:0 18px;padding-block:12px;border-top:1px solid var(--line)}
+.timeline li{display:grid;padding-block:10px;border-top:1px solid var(--line)}
 .timeline li:last-child{border-bottom:1px solid var(--line)}
-.t{font-family:var(--display);font-size:20px;line-height:1.35;font-variant-numeric:tabular-nums}
-.what{font-family:var(--display);font-size:22px;line-height:1.35}
-.where{grid-column:2;color:var(--muted);font-size:16px}
-.tip{color:var(--muted);font-size:16px;max-width:44ch}
-.btn{justify-self:start;text-decoration:none;font:inherit;font-weight:600;font-size:18px;background:var(--btn);color:var(--btn-ink);border-radius:4px;padding:15px 30px}
-.btn:hover{filter:brightness(1.12)}
-.note{font-size:14px;color:var(--muted)}
+.what{font-family:var(--display);font-size:21px;line-height:1.4}
+.where{color:var(--muted);font-size:16px}
+
+.osa{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-size:18px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:4px;padding:14px 30px;cursor:pointer}
+.btn:hover{filter:brightness(1.15)}
+.osa p{font-size:15px;color:var(--muted);max-width:26ch;line-height:1.4}
+.more{font-size:15px;color:var(--muted)}
+
+/* ---------- Details ---------- */
+.details{border-top:1px solid var(--line)}
+.wrap{max-width:760px;margin-inline:auto;padding:56px clamp(16px,4vw,40px) 40px}
+.wrap > h2{font-family:var(--display);font-size:clamp(30px,4vw,40px);line-height:1.15;margin-bottom:8px}
+.lead{color:var(--muted);margin-bottom:28px}
+
+.qa{border-top:1px solid var(--line)}
+.qa:last-of-type{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 2px;font-family:var(--display);font-size:22px;line-height:1.3}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-family:var(--body);font-size:26px;line-height:1;color:var(--muted);transition:transform .2s ease}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa .body{padding:0 2px 24px;display:grid;gap:12px;max-width:62ch}
+.qa .body strong{font-weight:400;font-family:var(--display);font-size:18px}
+.box{background:var(--soft);border-radius:6px;padding:14px 16px}
+.dim{color:var(--muted)}
+
+/* the hidden-in-plain-sight boat button */
+.ohoj{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:4px}
+.ohoj:hover{color:var(--accent)}
+
+.form-wrap{margin-top:8px}
+.form-wrap iframe{display:block;width:100%;height:1500px;border:0;background:#fff;border-radius:6px}
+
+footer{text-align:center;color:var(--muted);font-size:15px;padding:24px 16px calc(40px + env(safe-area-inset-bottom,0px))}
+.anchor{font:inherit;background:none;border:0;color:var(--line);cursor:pointer;font-size:20px;padding:6px 10px}
+.anchor:hover{color:var(--muted)}
+
+/* ---------- Easter egg ---------- */
+dialog.egg{border:0;padding:0;background:transparent;max-width:min(760px,calc(100vw - 32px));width:100%;overflow:visible}
+dialog.egg::backdrop{background:rgba(14,18,10,.82)}
+.souvenir{position:relative;background:linear-gradient(135deg,#E9C766,#B88A2C 45%,#F3DA8C 70%,#A87A22);padding:12px;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.55);transform:rotate(-2deg);animation:bob 3.4s ease-in-out infinite}
+.souvenir img{border-radius:2px}
+.souvenir figcaption{background:#1E2716;color:#F6EFCC;padding:14px 16px 12px;margin-top:10px;border-radius:2px;text-align:center}
+.souvenir figcaption b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(22px,4vw,30px);line-height:1.2;color:#F3DA8C}
+.souvenir figcaption span{font-size:15px;color:#BDC2A2}
+.stamp{position:absolute;top:-18px;right:-14px;background:#B9CFF5;color:#1E2716;font-family:var(--display);font-size:15px;line-height:1.1;text-align:center;padding:12px 10px;border-radius:50%;width:96px;height:96px;display:grid;place-items:center;transform:rotate(12deg);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.close{position:absolute;top:-14px;left:-14px;width:40px;height:40px;border-radius:50%;border:0;background:#F6EFCC;color:#1E2716;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@keyframes bob{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-.5deg) translateY(-8px)}}
+
+.sail{position:fixed;left:-140px;bottom:18px;z-index:5;font-size:56px;pointer-events:none;animation:sail 7s linear forwards}
+@keyframes sail{0%{transform:translateX(0) rotate(-4deg)}25%{transform:translateX(30vw) rotate(4deg)}50%{transform:translateX(60vw) rotate(-4deg)}75%{transform:translateX(90vw) rotate(4deg)}100%{transform:translateX(calc(100vw + 280px)) rotate(0)}}
 
 @media (max-width:900px){
-  .page{grid-template-columns:1fr;min-height:0;align-items:start;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+  .hero{grid-template-columns:1fr;min-height:0;align-items:start;gap:24px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+  .card img{max-width:min(360px,100%)}
+  .info{gap:16px}
+  .timeline{order:5}
+  .form-wrap iframe{height:1700px}
 }
+@media (max-width:420px){.stamp{width:78px;height:78px;font-size:13px;right:-6px}}
+@media (prefers-reduced-motion:reduce){.souvenir{animation:none}.sail{display:none}}
 </style>
 </head>
 <body>
-<main class="page">
-  <h1 class="card"><img src="inbjudan.png" alt="Välkommen till Cecilia och Isaks bröllop, 18 september 2027" width="636" height="611"></h1>
 
-  <section class="info">
-    <p class="count"><strong id="days">—</strong><span>dagar kvar</span></p>
-    <ol class="timeline">
-      <li><span class="t">15.00</span><span class="what">Vigsel</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Djursholms+kapell" target="_blank" rel="noopener">Djursholms kapell</a></span></li>
-      <li><span class="t">Därefter</span><span class="what">Båt</span><span class="where">Vi åker tillsammans till Ekensdal</span></li>
-      <li><span class="t">Kväll</span><span class="what">Middag och fest</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ekensdal" target="_blank" rel="noopener">Ekensdal</a></span></li>
-    </ol>
-    <p class="tip">Ta med en extra tröja till båten, det kan blåsa på vattnet i september.</p>
-    <!-- Byt LÄNK mot adressen till Google-formuläret -->
-    <a class="btn" id="osa-link" href="LÄNK" target="_blank" rel="noopener">OSA här</a>
-    <p class="note" id="osa-missing" hidden>Länken till OSA-formuläret läggs in snart.</p>
+<main>
+  <section class="hero">
+    <h1 class="card"><img src="inbjudan.png" alt="Välkommen till Cecilia och Isaks bröllop, 18 september 2027" width="636" height="611"></h1>
+
+    <div class="info">
+      <p class="date"><small>Lördag</small>18 september 2027</p>
+      <p class="count"><strong id="days">—</strong><span>dagar kvar</span></p>
+
+      <ol class="timeline">
+        <li><span class="what">Vigsel kl 15.00</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Djursholms+kapell+Danav%C3%A4gen+9" target="_blank" rel="noopener">Djursholms kapell</a>, Danavägen 9</span></li>
+        <li><span class="what">Båt</span><span class="where">Från Ekudden i Djursholm till Ekensdal i Nacka</span></li>
+        <li><span class="what">Middag och fest</span><span class="where"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ekensdal+Skurusundsv%C3%A4gen+151+Nacka" target="_blank" rel="noopener">Ekensdal</a>, Skurusundsvägen 151</span></li>
+      </ol>
+
+      <div class="osa">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScmDlVseuXYCEw6H7Bks7qxGBSDWsybTtsPrFtZPxouGg6vRg/viewform" target="_blank" rel="noopener">OSA här</a>
+        <p>Så snart du kan, senast den 18 juli 2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="details" id="info">
+    <div class="wrap">
+      <details class="qa" open>
+        <summary>När och var?</summary>
+        <div class="body">
+          <p>Vigseln börjar <strong>kl 15.00</strong> lördag den 18 september 2027 i Djursholms kapell. Kom i god tid.</p>
+          <p class="box">Djursholms kapell<br>Danavägen 9, 182 60 Djursholm<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Djursholms+kapell+Danav%C3%A4gen+9" target="_blank" rel="noopener">Öppna i kartan</a></p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Hur tar jag mig dit?</summary>
+        <div class="body">
+          <p><strong>Kommunalt:</strong> Ta röda linjen till Danderyds sjukhus eller Mörby centrum och sedan buss 601, 602 eller 606 till Djursholms torg. Därifrån är det sex minuters promenad till kapellet. Men vi vet ju också att ni klarar av att använda SL-appen ;)</p>
+          <p><strong>Med bil:</strong> Det finns parkering på plats.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Båten och bussen hem</summary>
+        <div class="body">
+          <p>Efter vigseln tar vi båt från Ekudden i Djursholm till Ekensdal i Nacka. <button type="button" class="ohoj" data-egg>Skepp o'hoj!</button> :)</p>
+          <p>Vi ser fram emot att dansa med er hela kvällen lång, och därför går det buss från Ekensdal in till stan på kvällen.</p>
+          <p class="dim">Säg till i OSA-formuläret om du åker med båten och vill ha en plats på bussen, så vet vi hur många vi blir.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Klädkod</summary>
+        <div class="body">
+          <p>Mörk kostym.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Barn</summary>
+        <div class="body">
+          <p>Vi vill ge alla föräldrar en välförtjänt helkväll på dansgolvet! Barn är varmt välkomna på själva vigseln, men middagen och festen firar vi i vuxet sällskap. Ammande spädbarn är självklart undantagna.</p>
+        </div>
+      </details>
+
+      <details class="qa">
+        <summary>Tal och spex</summary>
+        <div class="body">
+          <p>Vill du hålla tal eller ordna ett spex? Hur roligt! Anmäl det direkt till våra toastmasters, så pusslar de ihop kvällen.</p>
+          <!-- TODO: namn, mejl och sista anmälningsdag för toastmasters -->
+          <p class="box">Kontaktuppgifter till toastmasters och sista dag att anmäla kommer snart.</p>
+        </div>
+      </details>
+
+      <details class="qa" id="osa">
+        <summary>OSA</summary>
+        <div class="body">
+          <p>OSA så snart du kan, eller senast två månader innan, <strong>den 18 juli 2027</strong>.</p>
+          <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScmDlVseuXYCEw6H7Bks7qxGBSDWsybTtsPrFtZPxouGg6vRg/viewform" target="_blank" rel="noopener">Öppna formuläret i en ny flik</a></p>
+          <div class="form-wrap">
+            <iframe data-src="https://docs.google.com/forms/d/e/1FAIpQLScmDlVseuXYCEw6H7Bks7qxGBSDWsybTtsPrFtZPxouGg6vRg/viewform?embedded=true" title="OSA-formulär" loading="lazy"></iframe>
+          </div>
+        </div>
+      </details>
+    </div>
   </section>
 </main>
+
+<footer>
+  <p>Vi längtar efter att fira med er! Cecilia &amp; Isak</p>
+  <button type="button" class="anchor" data-egg aria-label="Ankare">⚓</button>
+</footer>
+
+<dialog class="egg" id="egg" aria-label="Generalrepetition">
+  <figure class="souvenir" style="margin:0">
+    <button type="button" class="close" aria-label="Stäng">×</button>
+    <div class="stamp">Båtvana<br>intygad ✓</div>
+    <img src="ohoj.jpg" alt="Cecilia och Isak gör tummen upp framför en lysande båt och gyllene tempel, ett souvenirfoto från Bangkok" width="1400" height="939">
+    <figcaption><b>Ni kan sitta lugnt i båten!</b><span>Som ni ser har vi båtvana sedan tidigare. Hoppas att ni får lika kul som vi hade på båten i Bangkok!</span></figcaption>
+  </figure>
+</dialog>
 
 <script>
 (function(){
   var days = Math.ceil((new Date("2027-09-18T15:00:00+02:00") - Date.now()) / 864e5);
   document.getElementById("days").textContent = Math.max(days, 0);
 
-  // Until the Google Form link is filled in, the button explains instead of opening a broken page.
-  var osa = document.getElementById("osa-link");
-  if (!/^https:\/\//.test(osa.getAttribute("href"))) {
-    osa.addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("osa-missing").hidden = false;
-    });
+  // Load the embedded form only when the OSA section is opened.
+  var osa = document.getElementById("osa"), frame = osa.querySelector("iframe");
+  function loadForm(){ if (osa.open && !frame.src) frame.src = frame.dataset.src; }
+  osa.addEventListener("toggle", loadForm);
+  if (location.hash === "#osa") { osa.open = true; loadForm(); }
+
+  // Easter egg: "Skepp o'hoj!", the anchor in the footer, or typing "ohoj".
+  var egg = document.getElementById("egg");
+  function sail(){
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var b = document.createElement("div");
+    b.className = "sail"; b.textContent = "🛥️";
+    document.body.appendChild(b);
+    setTimeout(function(){ b.remove(); }, 7200);
   }
+  function show(){
+    sail();
+    if (egg.showModal) egg.showModal(); else egg.setAttribute("open", "");
+  }
+  document.querySelectorAll("[data-egg]").forEach(function(el){ el.addEventListener("click", show); });
+  egg.querySelector(".close").addEventListener("click", function(){ egg.close(); });
+  egg.addEventListener("click", function(e){ if (e.target === egg) egg.close(); });
+
+  var typed = "";
+  document.addEventListener("keydown", function(e){
+    if (/INPUT|TEXTAREA/.test(e.target.tagName) || e.key.length !== 1) return;
+    typed = (typed + e.key.toLowerCase()).slice(-4);
+    if (typed === "ohoj") show();
+  });
 })();
 </script>
 </body>
